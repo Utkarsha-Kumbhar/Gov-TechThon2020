@@ -10,5 +10,5 @@ app.listen(port, function() {
 
 // route our app
 app.get('/', function(req, res) {
-  res.send('hello world!');
+  res.sendFile('index.html',{root:'.'});
 });
