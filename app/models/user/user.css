@@ -1,0 +1,62 @@
+body{
+    margin: auto;
+    background-color: rgb(3, 20, 121);
+    text-transform: capitalize;
+}
+.center{
+    align-items: center;
+    text-align: center;
+    font-weight: 600;
+    font-size: xx-large;
+}
+.navigation-bar{
+    background: #0E4ACA;
+    background: -webkit-radial-gradient(bottom, #0E4ACA, #74BCE0);
+    background: -moz-radial-gradient(bottom, #0E4ACA, #74BCE0);
+    background: radial-gradient(to top, #0E4ACA, #74BCE0);
+    padding: 4rem auto;
+    box-shadow: 5px 5px rgb(66, 64, 64);
+    text-transform: uppercase;
+
+}
+.logo{
+    border-radius: 5rem;
+    margin: 4rem;
+    box-shadow: 1px 2px black;
+}
+.titl{
+    margin: 1rem 3.5rem;
+    padding: 2rem 3rem;
+    margin-left: 4.5rem;
+    margin-top: 0%;
+}
+.main-site{
+    padding: 1.6rem 1.5rem;
+    margin : 3.5rem auto;
+    background: rgb(121, 148, 173);
+    width: 55%;
+    align-content: center;
+    border-radius: 1.2rem;
+}
+.view1{
+    margin: auto;
+    padding: 1.5rem;
+    border-radius: 0.9rem;
+    background-color: darkorange;
+    margin: 2rem 4rem;
+    width: 75%;
+    box-shadow: 1px 2px black;
+    text-align: center;
+}
+#myfile{
+    margin: auto;
+    padding: 1.5rem;
+    border-radius: 0.9rem;
+}
+.container{
+    margin: auto;
+    flex: content;
+}
+.textt{
+    font-weight: 400;
+}
