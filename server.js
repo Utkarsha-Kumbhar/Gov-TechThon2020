@@ -1,7 +1,8 @@
+#for compressing the image 
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const dbConfig = require("./app/config/db.config");
+const dbConfig = rvvssequire("./app/config/db.config");
 
 const app = express();
 
