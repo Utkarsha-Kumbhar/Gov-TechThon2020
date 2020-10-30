@@ -34,15 +34,13 @@ db.mongoose
     process.exit();
   });
 
+  app.use(express.static('index2.html'));
+
 // simple route
 app.get("/", (req, res) => {
   res.json({ message: "Welcome to our application." });
 });
 
-// route our app
-app.get('/', function(req, res) {
-  res.sendFile('index.html',{root:'.'});
-});
 // routes
 require("./app/routes/auth.routes")(app);
 require("./app/routes/user.routes")(app);
@@ -88,3 +86,7 @@ function initial() {
     }
   });
 }
+
+
+
+
