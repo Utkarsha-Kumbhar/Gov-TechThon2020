@@ -1,14 +1,18 @@
-
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const dbConfig = rvvssequire("./app/config/db.config");
+const dbConfig = require("./app/config/db.config");
+const web_request = require("request-promise");
+var async = require('async');
 
 const app = express();
 
 var corsOptions = {
   origin: "http://localhost:8081"
 };
+
+const auth_url = 'http://localhost:8080/api/auth/signin'
+const signup_url = 'http://localhost:8080/api/auth/signup'
 
 app.use(cors(corsOptions));
 
@@ -19,6 +23,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const db = require("./app/models");
+const { request } = require("http");
 const Role = db.role;
 
 db.mongoose
@@ -35,13 +40,16 @@ db.mongoose
     process.exit();
   });
 
-  app.use(express.static('index2.html'));
+// // simple route
+// app.get("/", (req, res) => {
+//   res.json({ message: "Welcome to our application." });
+// });
 
-// simple route
-app.get("/", (req, res) => {
-  res.json({ message: "Welcome to our application." });
+// route our app
+app.get('/', function(req, res) {
+  res.render('index.ejs',{root:'.'});
 });
-
+app.use(express.static('index2.html'));
 // routes
 require("./app/routes/auth.routes")(app);
 require("./app/routes/user.routes")(app);
@@ -88,6 +96,17 @@ function initial() {
   });
 }
 
-
-
-
+app.get('/signup', async function(req, res, next) {
+  var aadharno = req.body.aadhar;
+  var userid = req.body.userid;
+  var pwd = req.body.passwd;
+  options = {
+    url: signup_url,
+    method: 'POST',
+    form: {username: userid, email: "dummy@test.com", password: pwd, roles: ["user"]}
+  }
+  var result = await web_request(options);
+  console.log("------------------------");
+  console.log(result);
+  res.json({ message: "user dashboard" });
+});
